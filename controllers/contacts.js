@@ -106,12 +106,22 @@ function addNewContact (request,response)
 
                         });
                         contact.save(function(error,data){
-                            if(!err)
+                            if(!error)
                             {
-                                response.json(data);
+                                let resp = 
+                                {
+                                    success: true,
+                                    statusCode: response.statusCode,
+                                    message: "contact added",
+                                    data: data
+                                }
+                                response.json(resp);
                             }
                             else
+                            {
                                 response.json(error);
+                            }
+                                
                             });
                     }
                                         
@@ -135,7 +145,13 @@ function findUserContacts (request,response)
             {
                 if(data.docs.length != 0)
                 {
-                    response.json(data);
+                    let resp = 
+                                {
+                                    success: true,
+                                    statusCode: response.statusCode,
+                                    data: data
+                                }
+                    response.json(resp);
                 }
                 else
                 {
@@ -160,7 +176,13 @@ function recentContacts (request,response)
                 }
             else
                 {
-                    response.json(data);
+                    let resp = 
+                                {
+                                    success: true,
+                                    statusCode: response.statusCode,
+                                    data: data
+                                }
+                    response.json(resp);
                 }
         })
     }
