@@ -9,8 +9,10 @@ Prerequisites:
 How to consume APIs:
 
 1- Run node server using this command: npm start
+
 2- Run MongoDB server using these commands: 1-mongod
                                             2-mongo
+                                            
 3- create new user using the create user route 
     /users/adduser
   and set the user's credentials (authorization, deviceToken, fingerPrint) in the request
