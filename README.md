@@ -17,7 +17,7 @@ How to consume APIs:
     /users/adduser
   and set the user's credentials (authorization, deviceToken, fingerPrint) in the request
   
-  kindly note that the data should be sent in "form-urlencoded"
+  kindly note that the data should be sent in "form-urlencoded" otherwise the data canot be parsed 
     
 4- you can show all users using this route
    /users/allusers
