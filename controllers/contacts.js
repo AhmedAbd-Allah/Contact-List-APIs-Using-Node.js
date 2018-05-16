@@ -38,17 +38,23 @@ function Authenticate (request, response, next)
 function addMiddleWare (request,response,next)
 {
 
-    email = validator.trim(request.body.email);
-    firstName = validator.trim(request.body.firstName);
-    lastName = validator.trim(request.body.lastName);
-    mobile = validator.trim(request.body.mobile);
-    fingerPrint = validator.trim(request.body.fingerPrint);
+    let email = request.body.email;
+    let firstName = request.body.firstName;
+    let lastName = request.body.lastName;
+    let mobile = request.body.mobile;
+    let fingerPrint = request.body.fingerPrint;
     
-    validateEmail = validator.isEmail(email);
-    validateFirstName = validator.isAlpha(firstName);
-    validateLastName = validator.isAlpha(lastName);
-    validateMobile = validator.isMobilePhone(request.body.mobile,"ar-EG")    
+    
+    validateEmail = email ? validator.isEmail(email): response.json("email is required");
+    validateFirstName = firstName ? validator.isAlpha(firstName):  response.json("firstName is required");
+    validateLastName = lastName ? validator.isAlpha(lastName): response.json("lastName is required");
+    validateMobile = mobile ? validator.isMobilePhone(request.body.mobile,"ar-EG"): response.json("mobile is required and should be Egyptian Mobile number");
     errors = {};
+    email = validator.trim(email);
+    firstName = validator.trim(firstName);
+    lastName = validator.trim(lastName);
+    mobile = validator.trim(mobile);
+    fingerPrint = validator.trim(fingerPrint);
 
     var validationResult =  validateEmail &&  validateFirstName && validateLastName && validateMobile
     if (validationResult)
