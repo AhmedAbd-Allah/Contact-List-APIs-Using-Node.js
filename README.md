@@ -27,6 +27,9 @@ How to consume APIs:
 6- Once you created the user, You can create and retrieve his contacts as the required task with the required specifications
    kindly note that the data should be sent in "form-urlencoded"
    
+7- the mobile number should be Egyptian mobile Number otherwise it won't be accepted 
+
+   
    
 ** in case you consume the APIs on local server, kindly notice that the node server runs on port 9000   
 
